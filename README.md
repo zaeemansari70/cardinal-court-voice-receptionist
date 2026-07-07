@@ -6,14 +6,12 @@ London SE1 0SW. Open the link, allow your mic, and talk to it — it answers bui
 questions (floors, tenants, amenities, access, transport, hours) grounded in the
 building fact pack, and says "I don't have that" instead of making things up.
 
-Built for the Venaglass AI Product Engineer take-home.
-
 ---
 
 ## Live demo
 
 - **Live URL:** https://zaeemansari70.github.io/cardinal-court-voice-receptionist/
-- **Before you dial in:** best in **Chrome**, **allow the microphone**, tap the mic
+- **Before you start:** best in **Chrome**, **allow the microphone**, tap the mic
   button in the bottom-right corner, and give it **~10–15 seconds** to connect on the
   first call (free-tier cold start). Speak naturally; you can interrupt it.
 
@@ -35,8 +33,8 @@ awkward cases gracefully:
 
 ## Stack
 
-- **Language:** Python (the most mature LiveKit Agents SDK — quickest path to a reliable
-  voice agent in the time box).
+- **Language:** Python (the most mature LiveKit Agents SDK — the quickest path to a
+  reliable voice agent).
 - **Framework:** [LiveKit Agents](https://docs.livekit.io/agents/) — `AgentSession` voice
   pipeline with semantic turn detection and background voice cancellation.
 - **Models:** [LiveKit Inference](https://docs.livekit.io/agents/models/inference/) — a
@@ -146,7 +144,7 @@ page is not a secret.
 - No memory across calls; each session starts fresh.
 - English-first (Deepgram is set to multi-language STT, but the prompt/facts are English).
 
-## What I'd do next (out of scope for the time box)
+## What I'd do next
 
 - **Structured tools / a small MCP server** for the building data, so facts can change
   without editing the prompt (and to talk through prompt-vs-tool grounding).
@@ -155,10 +153,3 @@ page is not a secret.
 - **Telephony (LiveKit SIP)** so it answers a real phone number.
 - **Multi-language** responses (STT already allows it).
 - **Observability / call transcripts** and a larger regression eval set wired into CI.
-
-## Rough time split (~2h target)
-
-- Setup, scaffold, first Cloud deploy of the default agent — ~25 min
-- Grounding: system prompt + full fact pack + traps + 999 carve-out + greeting — ~30 min
-- Eval suite (15 cases) + iterating the prompt until green — ~30 min
-- Redeploy, live sandbox check, README, repo — ~30 min
