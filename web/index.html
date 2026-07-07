@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cardinal Court — Voice Receptionist</title>
+    <meta
+      name="description"
+      content="Talk to the voice receptionist for Cardinal Court, 120 Southwark Street, London SE1."
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+          sans-serif;
+        color: #f4f4f5;
+        background:
+          radial-gradient(1200px 600px at 50% -10%, #1e293b 0%, transparent 60%),
+          #0b0f17;
+      }
+      main {
+        max-width: 560px;
+        text-align: center;
+      }
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 12px;
+        color: #93c5fd;
+        margin: 0 0 12px;
+      }
+      h1 {
+        font-size: clamp(28px, 6vw, 40px);
+        line-height: 1.1;
+        margin: 0 0 12px;
+      }
+      .address {
+        color: #a1a1aa;
+        margin: 0 0 28px;
+        font-size: 16px;
+      }
+      .card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 24px;
+        text-align: left;
+      }
+      .card p {
+        margin: 0 0 12px;
+        color: #d4d4d8;
+        line-height: 1.55;
+      }
+      .card p:last-child {
+        margin-bottom: 0;
+      }
+      .hint {
+        display: inline-block;
+        margin-top: 4px;
+        font-size: 14px;
+        color: #71717a;
+      }
+      strong {
+        color: #fff;
+      }
+      .pulse {
+        color: #93c5fd;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">Cardinal Court · London SE1</p>
+      <h1>Voice Receptionist</h1>
+      <p class="address">120 Southwark Street, London SE1 0SW</p>
+
+      <div class="card">
+        <p>
+          Tap the <span class="pulse">voice button in the bottom-right corner</span>,
+          allow your microphone, and just start talking.
+        </p>
+        <p>
+          Ask about floors and tenants, opening hours, the café, showers, step-free
+          access, parking, getting here, or booking a meeting room.
+        </p>
+        <p class="hint">
+          Best in Chrome. The first connection can take about ten to fifteen seconds.
+        </p>
+      </div>
+    </main>
+
+    <!-- LiveKit Agent Embed Widget — mounts a launcher button in the bottom-right.
+         Requires this page's origin to be added to Allowed origins in the LiveKit
+         Cloud dashboard (Agents → cardinal-court → Embed) and the widget toggled on. -->
+    <script
+      src="https://cloud.livekit.io/embed-popup.js"
+      data-lk-agent="CA_nuLGtazUb58k"
+      data-lk-theme="dark"
+    ></script>
+  </body>
+</html>
