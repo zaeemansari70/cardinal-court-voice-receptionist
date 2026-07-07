@@ -12,10 +12,10 @@ Built for the Venaglass AI Product Engineer take-home.
 
 ## Live demo
 
-- **Live URL:** _<paste the LiveKit Sandbox URL here>_
-- **Before you dial in:** best in **Chrome**, **allow the microphone**, and give it
-  **~10–15 seconds** to connect on the first call (free-tier cold start). Speak
-  naturally; you can interrupt it.
+- **Live URL:** https://zaeemansari70.github.io/cardinal-court-voice-receptionist/
+- **Before you dial in:** best in **Chrome**, **allow the microphone**, tap the mic
+  button in the bottom-right corner, and give it **~10–15 seconds** to connect on the
+  first call (free-tier cold start). Speak naturally; you can interrupt it.
 
 ## What it does
 
@@ -43,7 +43,8 @@ awkward cases gracefully:
   single key path for STT (Deepgram Nova-3), LLM (OpenAI GPT), and TTS (Cartesia Sonic-3),
   so there's no juggling separate provider API keys.
 - **Hosting:** deployed to **LiveKit Cloud** (`lk agent deploy`); the public URL is a
-  **LiveKit Sandbox** web frontend (no custom frontend to build or host).
+  tiny static page ([`docs/index.html`](docs/index.html)) that mounts the **LiveKit
+  Agent Embed Widget**, served on **GitHub Pages** (no custom voice frontend to build).
 - **Scaffold:** the `agent-starter-python` template (via `lk agent init`).
 
 ## Grounding approach (and why no RAG / MCP)
@@ -122,9 +123,20 @@ lk agent deploy --secrets-file .env.local                       # subsequent ver
 lk agent status                                                 # confirm Running
 ```
 
-The public URL comes from a **LiveKit Sandbox** (Cloud dashboard → your project →
-Sandbox → Voice agent → select the `cardinal-court` agent), which hosts the React voice
-frontend for you.
+### Public URL
+
+LiveKit's hosted Sandbox is deprecated (creation is disabled), so the public,
+login-free URL is a small static page that mounts the **Agent Embed Widget**:
+
+1. `docs/index.html` embeds `https://cloud.livekit.io/embed-popup.js` with
+   `data-lk-agent="<agent-id>"`, and is served on **GitHub Pages** (Settings → Pages →
+   branch `main`, folder `/docs`).
+2. In the Cloud dashboard: **Agents → cardinal-court → Embed → Install** → add the Pages
+   origin (e.g. `https://<username>.github.io`) to **Allowed origins**, then toggle
+   **Embed widget on** and **Save**.
+
+The widget only loads on origins allow-listed in the dashboard, so the agent ID in the
+page is not a secret.
 
 ## Known limitations
 
